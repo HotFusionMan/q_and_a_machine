@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    q_and_a_machine (0.0.1)
+    HotFusionMan-q_and_a_machine (0.0.1)
       rails (~> 3.2.2)
 
 GEM
@@ -125,8 +125,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  HotFusionMan-q_and_a_machine!
   capybara
   jquery-rails
-  q_and_a_machine!
   rspec-rails (~> 2.5)
   sqlite3
