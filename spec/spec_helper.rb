@@ -4,6 +4,9 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 
+
+Rails.backtrace_cleaner.remove_silencers!
+
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
