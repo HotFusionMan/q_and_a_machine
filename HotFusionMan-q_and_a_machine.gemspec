@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = s.name
   s.required_rubygems_version = '> 1.3.6'
 
-  #s.files = Dir['{app,config,db,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.rdoc']
+  #s.files = Dir['{app,config,db,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.files = `git ls-files`.split( "\n" )
   s.executables = s.files.map { |f| f =~ /^bin\/(.*)/ ? $1 : nil }.compact
   s.test_files = Dir['spec/**/*']
