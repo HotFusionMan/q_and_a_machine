@@ -1,0 +1,16 @@
+<h1>Questions</h1>
+<%= link_to "New Question", new_question_path %>
+<% if @questions.empty? %>
+    There are currently no questions.
+<% else %>
+    <table id='questions'>
+      <thead>
+        <tr> <td>Subject</td> </tr>
+      </thead>
+      <tbody>
+      <% @questions.each do |question| %>
+          <tr> <td id='question_question'><%= link_to question.question, question %></td> </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
