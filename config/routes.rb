@@ -1,3 +1,3 @@
 QAndAMachine::Engine.routes.draw do
-  resources :questions
+  resources :assertions
 end

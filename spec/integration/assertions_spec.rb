@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'assertions' do
   it 'creating a new one' do
-    visit questions_path
+    visit assertions_path
     click_link 'New Assertion'
-    fill_in 'Assertion', :with => 'What was the first question?'
+    fill_in 'Assertion', :with => 'This is the first assertion.'
     click_button 'Create Assertion'
 
     #within '#flash_notice' do

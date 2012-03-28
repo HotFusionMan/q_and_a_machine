@@ -1,15 +1,15 @@
 <h1>Questions</h1>
-<%= link_to "New Assertion", new_question_path %>
-<% if @questions.empty? %>
-    There are currently no questions.
+<%= link_to "New Assertion", new_assertion_path %>
+<% if @assertions.empty? %>
+    There are currently no assertions.
 <% else %>
-    <table id='questions'>
+    <table id='assertions'>
       <thead>
         <tr> <td>Subject</td> </tr>
       </thead>
       <tbody>
-      <% @questions.each do |question| %>
-          <tr> <td id='question_question'><%= link_to question.question, question %></td> </tr>
+      <% @assertions.each do |assertion| %>
+          <tr> <td id='assertion_assertion'><%= link_to assertion.assertion, assertion %></td> </tr>
       <% end %>
       </tbody>
     </table>

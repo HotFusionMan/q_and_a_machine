@@ -1,21 +1,21 @@
 module QAndAMachine
-  class QuestionsController < ApplicationController
+  class AssertionsController < ApplicationController
     def index
-      @questions = QAndAMachine::Assertion.all
+      @assertions = QAndAMachine::Assertion.all
     end
 
     def new
-      @question = QAndAMachine::Assertion.new
+      @assertion = QAndAMachine::Assertion.new
     end
 
     def create 
-      @question = QAndAMachine::Assertion.create(params[:question])
+      @assertion = QAndAMachine::Assertion.create(params[:assertion])
       flash[:notice] = 'Assertion has been created!'
-      redirect_to @question
+      redirect_to @assertion
     end
 
     def show
-      @question = QAndAMachine::Assertion.find(params[:id])
+      @assertion = QAndAMachine::Assertion.find(params[:id])
     end
   end
 end
