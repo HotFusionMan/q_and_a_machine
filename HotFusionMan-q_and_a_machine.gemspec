@@ -24,10 +24,12 @@ Gem::Specification.new do |s|
   s.executables = s.files.map { |f| f =~ /^bin\/(.*)/ ? $1 : nil }.compact
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '~> 3.2.2'
+  s.add_dependency 'rails', '~> 3.2.3'
+  s.add_dependency 'resque'
 
   s.add_development_dependency 'sqlite3'
 
   s.add_development_dependency 'rspec-rails', '~> 2.5'
   s.add_development_dependency 'capybara'
+  s.add_development_dependency 'mock_redis'
 end
