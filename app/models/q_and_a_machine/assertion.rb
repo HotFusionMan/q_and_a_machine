@@ -1,15 +1,9 @@
 module QAndAMachine
   class Assertion < ActiveRecord::Base
-    def initialize( _id = object_id )
-      @id = _id
-    end
-
-    # after_save :enqueue_if_new
-
-    
+    after_create :enqueue
 
     def enqueue
-      ::Resque.enqueue( AssertionProcessor, @id )
+      ::Resque.enqueue( AssertionProcessor, id )
     end
   end
 end

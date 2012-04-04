@@ -9,9 +9,11 @@ describe QAndAMachine::Assertion do
 
 
   it '#enqueue should queue a job' do
-    assertion_id = 42
+    user_id = 42
+    assertion = QAndAMachine::Assertion.new( :user_id => user_id )
+    assertion.save!
+    assertion_id = assertion.id
 
-    assertion = QAndAMachine::Assertion.new( :id => assertion_id )
     assertion.enqueue
 
     # redis_keys = Redis.current.keys( '*' )
@@ -20,10 +22,20 @@ describe QAndAMachine::Assertion do
     # }
 
     queue_name = 'resque:queue:' + QAndAMachine::AssertionProcessor.instance_variable_get( :@queue ).to_s
-    Redis.current.llen( queue_name ).should == 1
 
-    job = JSON.parse( Redis.current.lpop( queue_name ) ) # Use lpop so we return Redis to its initial state.
+    Redis.current.llen( queue_name ).should > 0
+
+    job = JSON.parse( Redis.current.lindex( queue_name, 0 ) )
     job['args'].size.should == 1
-    job['args'].first['id'].should == assertion_id
+    job['args'].first.should == assertion_id
+  end
+
+
+  it '#save[!] should enqueue a job' do
+    assertion = QAndAMachine::Assertion.new
+
+    assertion.should_receive( :enqueue )
+
+    assertion.save!
   end
 end
